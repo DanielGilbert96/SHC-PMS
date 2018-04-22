@@ -28,6 +28,9 @@
           </ul>
           <ul class="navbar-nav navbar-right">
             <li class="nav-item">
+              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+            </li>
+            <li class="nav-item">
               <%= link_to "Create Patient", new_patient_path, class: "nav-link" %>
             </li>
           </ul>
@@ -36,13 +39,13 @@
     </nav>
 
     <main role="main" class="container">
-      <
+
       <% if notice %>
-      <br>
+        <br>
         <div class="alert alert-primary"><%= notice %></div>
       <% end %>
       <% if alert %>
-      <br>
+        <br>
         <div class="alert alert-danger"><%= alert %></div>
       <% end %>
       <%= yield %>
