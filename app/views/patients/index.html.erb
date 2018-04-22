@@ -1,0 +1,26 @@
+<h1 class="display-1">Patient list</h1>
+<%= form_tag patients_path, method: :get do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<div class="dropdown">
+ <a class="dropdown-toggle text-muted" data-toggle="dropdown" href="#" id="dropdown-sortmode" title="Sort">
+ <small><span class="glyphicon glyphicon-sort"></span>&nbsp;Sort</small>
+ </a>
+ <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-sortmode">
+   <li role="menuitem"><%= link_to "Name", :sort => "name"%></li>
+   <li role="menuitem"><%= link_to "dateofbirth", :sort => "dob"%></li>
+   <li role="menuitem"><%= link_to "Most recent", :sort => "updated_at"%></li>
+ </ul>
+</div>
+<br>
+<% @patients.each do |patient| %>
+<div class="jumbotron">
+  <h2 class="display-4"><%= patient.name %></h3>
+  <hr class="my-4">
+  <p class="lead"><%= patient.dob %></p>
+  <%= link_to "More info", patient_path(patient), :class => 'btn btn-primary' %>
+</div>
+<% end %>
+<%= will_paginate(@patients, :renderer => WillPaginate::ActionView::LinkRenderer) %>

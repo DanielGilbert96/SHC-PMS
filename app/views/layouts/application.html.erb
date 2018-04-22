@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SmartHealth</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css'%>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js'%>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+      <a class="navbar-brand" href="#">SHC-PMS</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <% if user_signed_in? %>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to "Home", home_path, class: "nav-link" %>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+              <%= link_to "Create Patient", new_patient_path, class: "nav-link" %>
+            </li>
+          </ul>
+        <%end%>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+      <
+      <% if notice %>
+      <br>
+        <div class="alert alert-primary"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+      <br>
+        <div class="alert alert-danger"><%= alert %></div>
+      <% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

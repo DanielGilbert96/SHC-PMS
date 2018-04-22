@@ -1,0 +1,63 @@
+<br>
+<div class="jumbotron">
+  <h2 class="display-4"><%= @patient.name %></h2>
+  <hr class="my-4">
+  <p class="lead">
+    <b>Date of birth:</b>
+    <%= @patient.dob %></p>
+  <p class="lead">
+    <b>Address:</b>
+    <%= @patient.address %></p>
+  <p class="lead">
+    <b>Phone number:</b>
+    <%= @patient.phone_no %></p>
+  <hr class="my-4">
+
+  <h2 class="display-4">Records</h2>
+
+  <ul class="list-group">
+    <p class="lead">
+      <b>Injury history:</b>
+    </p>
+    <% @patient.records.each do |record| %>
+      <li class="list-group-item">
+        <%= record.injury %>
+        <%= record.updated_at %>
+      </li>
+    <% end %>
+  </ul>
+  <ul class="list-group">
+    <p class="lead">
+      <b>Infection history:</b>
+    </p>
+    <% @patient.records.each do |record| %>
+      <li class="list-group-item">
+        <%= record.infection %>
+        <%= record.updated_at %>
+      </li>
+    <% end %>
+  </ul>
+  <p class="lead">
+    <b>Observation history:</b>
+  </p>
+  <ul class="list-group">
+    <% @patient.records.each do |record| %>
+      <li class="list-group-item"><%= record.observation %>
+        <%= record.updated_at %></li>
+    <% end %>
+  </ul>
+  <p class="lead">
+    <b>Clinic history:</b>
+  </p>
+  <ul class="list-group">
+    <% @patient.records.each do |record| %>
+      <li class="list-group-item"><%= record.clinic %>
+        <%= record.updated_at %></li>
+    <% end %>
+  </ul>
+  <br>
+
+  <%= link_to "Add Record", new_record_path(@patient), :class => "btn btn-success" %>
+  <%= link_to "Edit Patient", edit_patient_path(@patient), :class => "btn btn-primary" %>
+  <%= link_to "Delete Patient", patient_path(@patient), method: :delete, data: {confirm:'Are you sure'}, :class => "btn btn-danger" %>
+</div>
