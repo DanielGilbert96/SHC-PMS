@@ -1,5 +1,4 @@
 class PatientObserver < ActiveRecord::Observer
-  observe :patients
   def after_create(patient)
     patient.logger.info('New patient added!')
   end

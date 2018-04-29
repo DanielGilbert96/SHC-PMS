@@ -9,11 +9,6 @@ class PatientsController < ApplicationController
         format.xlsx
       end
   end
-  def email
-    @patient = Patient.find(params[:format]).decorate
-    PatientMailer.sample_email(@user).deliver
-    redirect_to @patient
-  end
   def new
     @patient = Patient.new.decorate
   end

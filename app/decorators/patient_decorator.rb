@@ -18,5 +18,5 @@ class PatientDecorator < Draper::Decorator
                                    :content => some_string }
     mail(:to => recipient, :subject => "New account information")
   end
-  
+
 end
