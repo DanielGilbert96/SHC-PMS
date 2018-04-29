@@ -3,21 +3,25 @@
 <%= text_field_tag :search, params[:search] %>
 <%= submit_tag "Search" %>
 <% end %>
-
-<div class="dropdown">
+<div class="dropdown pull-right">
  <a class="dropdown-toggle text-muted" data-toggle="dropdown" href="#" id="dropdown-sortmode" title="Sort">
  <small><span class="glyphicon glyphicon-sort"></span>&nbsp;Sort</small>
  </a>
  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-sortmode">
-   <li role="menuitem"><%= link_to "Name", :sort => "name"%></li>
-   <li role="menuitem"><%= link_to "dateofbirth", :sort => "dob"%></li>
+   <li role="menuitem"><%= link_to "First name", :sort => "first_name"%></li>
+  <li role="menuitem"><%= link_to "Second name", :sort => "second_name"%></li>
+   <li role="menuitem"><%= link_to "Date of birth", :sort => "dob"%></li>
    <li role="menuitem"><%= link_to "Most recent", :sort => "updated_at"%></li>
  </ul>
 </div>
+
+<br>
+<%= link_to "Export Patients as spreadsheet", patients_path(format: "xlsx"), :class => 'btn btn-info' %>
+<br>
 <br>
 <% @patients.each do |patient| %>
 <div class="jumbotron">
-  <h2 class="display-4"><%= patient.name %></h3>
+  <h2 class="display-4"><%= patient.first_name %> <%= patient.second_name %></h3>
   <hr class="my-4">
   <p class="lead"><%= patient.dob %></p>
   <%= link_to "More info", patient_path(patient), :class => 'btn btn-primary' %>

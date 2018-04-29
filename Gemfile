@@ -5,7 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'bcrypt', '~> 3.1.11'
+gem 'rails-observers'
+gem 'rubyzip', '= 1.0.0'
+gem 'axlsx'
+gem 'axlsx_rails'
+gem 'draper'
 gem 'devise', '~> 4.2'
 gem 'bootstrap', '~> 4.1.0'
 gem 'autoprefixer-rails'
@@ -35,7 +39,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

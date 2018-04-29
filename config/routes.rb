@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   get 'records', to: 'records#create'
 
+  get '/patients/email', to: 'patients#email'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

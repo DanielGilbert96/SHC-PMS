@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
+  decorates_assigned :record
   def index
-    @Record = Record.all
+    @Record = Record.all.decorate
   end
 
   def new

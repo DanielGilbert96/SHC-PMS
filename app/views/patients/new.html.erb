@@ -6,16 +6,24 @@
   <% end %>
 <% end %>
 <p>
-  <%= f.label :name %><br>
-  <%= f.text_field(:name, {:class => 'form-control'}) %>
+  <%= f.label :first_name %><br>
+  <%= f.text_field(:first_name, {:class => 'form-control'}) %>
+</p>
+<p>
+  <%= f.label :second_name %><br>
+  <%= f.text_field(:second_name, {:class => 'form-control'}) %>
 </p>
 <p>
   <%= f.label :date_of_birth %><br>
   <%= f.date_select :dob, {:start_year => 1900}%>
 </p>
 <p>
-  <%= f.label :address %><br>
-  <%= f.text_field(:address, {class: "form-control"}) %>
+  <%= f.label :first_line_of_address %><br>
+  <%= f.text_field(:address1, {class: "form-control"}) %>
+</p>
+<p>
+  <%= f.label :second_line_of_address %><br>
+  <%= f.text_field(:address2, {class: "form-control"}) %>
 </p>
 <p>
   <%= f.label :phone_no %><br>
