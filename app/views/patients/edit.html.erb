@@ -1,10 +1,10 @@
 <h1>Edit Patient</h1>
 <%= form_for :patient, url: patient_path(@patient), method: :patch do |f| %>
-<% if @patient.errors.any? %>
+  <% if @patient.errors.any? %>
   <% @patient.errors.full_messages.each do |msg| %>
     <div class="alert alert-danger"><%= msg %></div>
   <% end %>
-<% end %>
+  <% end %>
 <p>
   <%= f.label :name %><br>
   <%= f.text_field(:name, {:class => 'form-control'}) %>
